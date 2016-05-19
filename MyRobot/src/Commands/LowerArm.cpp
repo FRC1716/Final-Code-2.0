@@ -29,7 +29,7 @@ void LowerArm::Initialize() {
 
 // Called repeatedly when this Command is scheduled to run
 void LowerArm::Execute() {
-	Robot::mainSubsystem->moveShooter(Robot::oi->getRightJoystick());
+	Robot::mainSubsystem->lowerArm();
 }
 
 // Make this return true when this Command no longer needs to run execute()
@@ -39,7 +39,6 @@ bool LowerArm::IsFinished() {
 
 // Called once after isFinished returns true
 void LowerArm::End() {
-	Robot::mainSubsystem->stopShooter();
 }
 
 // Called when another command which requires one or more of the same

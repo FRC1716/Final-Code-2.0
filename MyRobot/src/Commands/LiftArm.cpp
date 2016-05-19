@@ -29,7 +29,7 @@ void LiftArm::Initialize() {
 
 // Called repeatedly when this Command is scheduled to run
 void LiftArm::Execute() {
-	Robot::mainSubsystem->moveArm(Robot::oi->getLeftJoystick());
+	Robot::mainSubsystem->liftArm();
 }
 
 // Make this return true when this Command no longer needs to run execute()
@@ -39,11 +39,9 @@ bool LiftArm::IsFinished() {
 
 // Called once after isFinished returns true
 void LiftArm::End() {
-	Robot::mainSubsystem->stopArm();
 }
 
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
 void LiftArm::Interrupted() {
-	End();
 }
