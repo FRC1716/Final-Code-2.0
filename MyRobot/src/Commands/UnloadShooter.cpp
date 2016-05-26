@@ -36,6 +36,7 @@ void UnloadShooter::Execute() {
 	Robot::mainSubsystem->loaderSol2->Set(false);
 	//wait for lower loader to get to back
 	Wait(1.5);
+	//while(!Robot::mainSubsystem->sideLS->Get()){}//not implemented because upper platform is triggering limit switch all the time
 	//unlock latch
 	Robot::mainSubsystem->latchSol1->Set(false);
 	Robot::mainSubsystem->latchSol2->Set(true);
@@ -47,7 +48,8 @@ void UnloadShooter::Execute() {
 	Robot::mainSubsystem->loaderSol1->Set(false);
 	Robot::mainSubsystem->loaderSol2->Set(true);
 	//wait for loader to get to the front
-	Wait(2);
+	//Wait(2);
+	while(!Robot::mainSubsystem->frontLS->Get()){}
 	//turn off loader
 	Robot::mainSubsystem->loaderSol1->Set(false);
 	Robot::mainSubsystem->loaderSol2->Set(false);

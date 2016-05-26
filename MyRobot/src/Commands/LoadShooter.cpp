@@ -38,7 +38,8 @@ void LoadShooter::Execute() {
 	Robot::mainSubsystem->loaderSol1->Set(true);
 	Robot::mainSubsystem->loaderSol2->Set(false);
 	//wait for the loader to get to back
-	Wait(2);
+	//Wait(2);
+	while(!Robot::mainSubsystem->backLS->Get()){}
 	//turn off loader and lock the latch
 	Robot::mainSubsystem->loaderSol1->Set(false);
 	Robot::mainSubsystem->loaderSol2->Set(false);
@@ -50,7 +51,8 @@ void LoadShooter::Execute() {
 	Robot::mainSubsystem->loaderSol1->Set(false);
 	Robot::mainSubsystem->loaderSol2->Set(true);
 	//wait for lower loader to get to front
-	Wait(1);
+	//Wait(1);
+	while(!Robot::mainSubsystem->frontLS->Get()){}
 	//turn off loader
 	Robot::mainSubsystem->loaderSol1->Set(false);
 	Robot::mainSubsystem->loaderSol2->Set(false);
